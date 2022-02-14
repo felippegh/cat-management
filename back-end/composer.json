@@ -45,6 +45,13 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "setup": [
+            "composer update",
+            "@php artisan cache:clear",
+            "@php artisan config:clear",
+            "@php artisan migrate",
+            "@php artisan key:generate"
         ]
     },
     "extra": {
