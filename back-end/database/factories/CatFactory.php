@@ -20,9 +20,9 @@ class CatFactory extends Factory
             'name'    => fn() => $this->faker->name(),
             'breed'    => fn() => $this->faker->colorName(),
             'description' => fn() => $this->faker->text(140),
-            'location_lat' => fn() => $this->faker->latitude(),
-            'location_lon' => fn() => $this->faker->longitude(),
-            'birthdate'    => fn() => $this->faker->date('d-m-Y'),
+            'location_lat' => fn() => $this->faker->latitude(0,1280),
+            'location_lon' => fn() => $this->faker->longitude(0,800),
+            'birthdate'    => fn() => $this->faker->date(),
         ];
     }
 }
