@@ -1,18 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" >
+    <img @click="testClick" alt="Pokémon Map" src="./assets/pokemon_map.jpg">
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import Cats from "./api/endpoints/Cats";
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+
+  methods: {
+    testClick(event) {
+      console.log(event.offsetX, event.offsetY);
+    }
+  },
+
+  created() {
+    Cats.index().then(response => {
+      console.log(response);
+    })
   }
+
 }
 </script>
 
