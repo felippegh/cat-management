@@ -1,11 +1,11 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 
-## Oktara Laravel Challenge - Cat Management
+## Oktara Challenge 1 - Cat Management
 
-This is the implementation of the take-home challenge for Laravel Developers from Oktara.
+This is a Laravel implementation of the take-home challenge for Developers from Oktara.
 
-### Description
+### Problem Description
 
 Jack owns so many cats that he can’t keep track of all of them. He needs some way to keep track of all of his cats - almost like a Pokédex for cats. Your app should be able to complete the following tasks:
 
