@@ -1,6 +1,7 @@
 import axios from "axios";
 import axiosRetry from "axios-retry";
 import handleErrors from "./utils/handleErrors";
+import config from "../config";
 
 export default class BaseConfigs {
     api;
@@ -15,6 +16,7 @@ export default class BaseConfigs {
     createAxiosInstance() {
         this.api = axios.create({
             timeout: 100000,
+            baseURL: config.api_url,
         });
     }
 
