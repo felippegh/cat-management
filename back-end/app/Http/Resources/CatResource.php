@@ -15,6 +15,7 @@ class CatResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->resource->getKey(),
             'name' => $this->resource->name,
             'breed' => $this->resource->breed,
             'description' => $this->resource->description,
