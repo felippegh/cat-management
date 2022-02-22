@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="cats-map">
-      <img v-tooltip="'Click to add a cat!'" @click="testClick" src="./assets/pokemon_map.jpg">
+      <img v-tooltip="'Click to add a cat!'" @click="openCreateModal" src="./assets/pokemon_map.jpg">
       <VMenu class="cat-icon" v-for="cat in cats" :key="cat.id"
              :style="{ left: cat.location_lat + 'px', top: cat.location_lon + 'px' }">
         <img src="./assets/cat_icon.png">
@@ -10,12 +10,12 @@
           Name: {{ cat.name }} <br>
           Breed: {{ cat.breed }} <br>
           Birthdate: {{ cat.birthdate }} <br>
-          <b-button v-b-modal="'my-modal'">Edit</b-button>
+          <b-button @click="openEditModal(cat)">Edit</b-button>
           <button @click="deleteCat(cat.id)">Delete</button>
         </template>
       </VMenu>
     </div>
-    <cat-form/>
+    <cat-form :cat-edit="catEdit"/>
   </div>
 </template>
 
@@ -33,14 +33,12 @@ export default {
 
   data() {
     return {
-      cats: []
+      cats: [],
+      catEdit: null,
     };
   },
 
   methods: {
-    testClick(event) {
-      console.log(event.offsetX, event.offsetY);
-    },
     loadCats() {
       Cats.index().then(response => {
         this.cats = response.data;
@@ -68,7 +66,16 @@ export default {
           })
         }
       })
-    }
+    },
+    openCreateModal() {
+      this.$bvModal.show("my-modal");
+    },
+    openEditModal(cat) {
+      this.catEdit = cat;
+      this.$bvModal.show("my-modal");
+    },
+
+
   },
 
   created() {
