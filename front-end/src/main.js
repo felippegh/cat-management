@@ -6,6 +6,7 @@ import {
   VTooltip,
 } from 'floating-vue';
 import 'floating-vue/dist/style.css';
+import './styles/custom-tool-tip.css'
 
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
