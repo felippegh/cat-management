@@ -1,8 +1,9 @@
 <template>
   <div id="app">
+    <div id="title">WELCOME TO CATMON!</div>
     <div class="cats-map">
       <img v-tooltip="'Click to add a cat!'" @click="openCreateModal" src="./assets/pokemon_map.jpg">
-      <VMenu class="cat-icon" v-for="cat in cats" :key="cat.id"
+      <VMenu theme="menu" class="cat-icon" v-for="cat in cats" :key="cat.id"
              :style="{ left: cat.location_lat + 'px', top: cat.location_lon + 'px' }">
         <img src="./assets/cat_icon.png">
 
@@ -10,12 +11,13 @@
           Name: {{ cat.name }} <br>
           Breed: {{ cat.breed }} <br>
           Birthdate: {{ cat.birthdate }} <br>
-          <b-button @click="openEditModal(cat)">Edit</b-button>
-          <button @click="deleteCat(cat.id)">Delete</button>
+          Description: {{ cat.description }} <br>
+          <b-button class="btn" @click="openEditModal(cat)">Edit</b-button>
+          <b-button class="btn" @click="deleteCat(cat.id)">Delete</b-button>
         </template>
       </VMenu>
     </div>
-    <cat-form :cat-edit="catEdit"/>
+    <cat-form :cat-edit="catEdit" :location-lat="locationLat" :location-lon="locationLon" @saved="loadCats"/>
   </div>
 </template>
 
@@ -35,11 +37,14 @@ export default {
     return {
       cats: [],
       catEdit: null,
+      locationLat: null,
+      locationLon: null,
     };
   },
 
   methods: {
     loadCats() {
+      console.log("TEST");
       Cats.index().then(response => {
         this.cats = response.data;
       })
@@ -67,15 +72,15 @@ export default {
         }
       })
     },
-    openCreateModal() {
+    openCreateModal(event) {
+      this.locationLat = event.offsetX;
+      this.locationLon = event.offsetY;
       this.$bvModal.show("my-modal");
     },
     openEditModal(cat) {
       this.catEdit = cat;
       this.$bvModal.show("my-modal");
     },
-
-
   },
 
   created() {
@@ -92,13 +97,24 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-image: url("./assets/background.png");
+  background-color: #000000;
+  padding: 1px;
+
+  #title {
+    //position: relative;
+    //top: -40px;
+    margin: 10px 0 10px 0;
+  }
+
+  .v-popper__inner {
+    text-align: center;
+  }
 
   .cats-map {
     position: relative;
     max-width: 1280px;
     margin: auto;
-    background: yellow;
 
     .cat-icon {
       position: absolute;
