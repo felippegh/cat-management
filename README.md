@@ -1,11 +1,10 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<div>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="350"></a>
+<a href="https://laravel.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1184px-Vue.js_Logo_2.svg.png" width="120"></a></p>
 
+</div> 
 
-## Oktara Challenge 1 - Cat Management
-
-This is a Laravel implementation of the take-home challenge for Developers from Oktara.
-
-### Problem Description
+## Cat Management
 
 Jack owns so many cats that he can’t keep track of all of them. He needs some way to keep track of all of his cats - almost like a Pokédex for cats. Your app should be able to complete the following tasks:
 
@@ -35,6 +34,8 @@ Jack owns so many cats that he can’t keep track of all of them. He needs some 
 Execute the following steps:
 
 - Clone the project
-- Create `.env` from `.env.example`
-- Run `docker-compose up`
-- Wait the orange-shop
+- Create `.env` file from `.env.example` in back-end folder
+- Create `.env` file from `.env.example` in front-end folder
+- Run `docker-compose up --build`
+- Wait the docker-compose build finish
+- Now you can access the application on http://localhost:801/
