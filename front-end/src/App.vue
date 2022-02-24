@@ -1,23 +1,34 @@
 <template>
-  <div id="app">
-    <div id="title">WELCOME TO CATMON!</div>
-    <div class="cats-map">
-      <img v-tooltip="'Click to add a cat!'" @click="openCreateModal" src="./assets/pokemon_map.jpg">
-      <VMenu theme="menu" class="cat-icon" v-for="cat in cats" :key="cat.id"
-             :style="{ left: cat.location_lat + 'px', top: cat.location_lon + 'px' }">
-        <img src="./assets/cat_icon.png">
+  <div>
+    <div id="app">
+      <div>
+        <img id="title" src="./assets/catmon.png">
+      </div>
+      <div class="cats-map">
+        <img v-tooltip="'Click to register your cat!'" @click="openCreateModal" src="./assets/pokemon_map.jpg">
+        <VMenu theme="menu" class="cat-icon" v-for="cat in cats" :key="cat.id"
+               :style="{ left: cat.location_lat + 'px', top: cat.location_lon + 'px' }">
+          <img src="./assets/cat_icon.png">
 
-        <template #popper>
-          Name: {{ cat.name }} <br>
-          Breed: {{ cat.breed }} <br>
-          Birthdate: {{ cat.birthdate }} <br>
-          Description: {{ cat.description }} <br>
-          <b-button class="btn" @click="openEditModal(cat)">Edit</b-button>
-          <b-button class="btn" @click="deleteCat(cat.id)">Delete</b-button>
-        </template>
-      </VMenu>
+          <template #popper>
+            <div class="balloon">
+              Name: {{ cat.name }} <br>
+              Breed: {{ cat.breed }} <br>
+              Birthdate: {{ cat.birthdate }} <br>
+              Description: {{ cat.description }} <br>
+              <div class="tooltip-buttons">
+                <b-button class="btn" @click="openEditModal(cat)">Edit</b-button>
+                <b-button class="btn" @click="deleteCat(cat.id)">Delete</b-button>
+              </div>
+            </div>
+          </template>
+        </VMenu>
+      </div>
+      <cat-form :cat-edit="catEdit" :location-lat="locationLat" :location-lon="locationLon" @saved="loadCats"/>
     </div>
-    <cat-form :cat-edit="catEdit" :location-lat="locationLat" :location-lon="locationLon" @saved="loadCats"/>
+    <footer>
+      felippegh.com 2022 🥑
+    </footer>
   </div>
 </template>
 
@@ -90,7 +101,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -100,15 +110,15 @@ export default {
   background-image: url("./assets/background.png");
   background-color: #000000;
   padding: 1px;
+  min-height: 100vh;
 
   #title {
-    //position: relative;
-    //top: -40px;
     margin: 10px 0 10px 0;
+    width: 150px;
   }
 
-  .v-popper__inner {
-    text-align: center;
+  .balloon {
+    background: red !important;
   }
 
   .cats-map {
@@ -125,4 +135,10 @@ export default {
     }
   }
 }
+  footer {
+    text-align: center;
+    margin-top: -22px;
+    font-weight: bold;
+    font-size: small;
+  }
 </style>
