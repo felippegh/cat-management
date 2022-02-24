@@ -1,0 +1,14 @@
+.balloon {
+    background: #F1EFEE;
+    padding: 15px;
+}
+
+.balloon .tooltip-buttons {
+    text-align: center;
+    margin: 5px;
+}
+
+.balloon .tooltip-buttons .btn {
+    text-align: center;
+    margin: 5px;
+}
