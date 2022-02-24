@@ -29,7 +29,9 @@
       <cat-form :cat-edit="catEdit" :location-lat="locationLat" :location-lon="locationLon" @saved="loadCats"/>
     </div>
     <footer>
-      felippegh.com 2022 🥑
+      <a href="https://felippegh.com/" target="_blank">
+        felippegh.com 2022 🥑
+      </a>
     </footer>
   </div>
 </template>
@@ -144,5 +146,9 @@ footer {
   font-weight: bold;
   font-size: small;
   color: darkcyan;
+}
+
+footer a {
+  text-decoration: none;
 }
 </style>
