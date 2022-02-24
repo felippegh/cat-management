@@ -1,16 +1,16 @@
 <template>
-  <b-modal id="my-modal" title="Edit Cat" ok-title="Save" @ok="submitForm">
+  <b-modal id="my-modal" title="Cat pokédex" ok-title="Save" @ok="submitForm">
     <label for="cat-name">Name:</label>
-    <b-form-input id="cat-name" v-model="cat.name" placeholder="Enter the cat name"></b-form-input>
+    <b-form-input id="cat-name" v-model="cat.name" placeholder="Enter the name"></b-form-input>
     <br>
     <label for="cat-breed">Breed:</label>
-    <b-form-input id="cat-breed" v-model="cat.breed" placeholder="Enter the cat breed"></b-form-input>
+    <b-form-input id="cat-breed" v-model="cat.breed" placeholder="Enter the breed"></b-form-input>
     <br>
     <label for="cat-birth">Birthdate:</label>
     <b-form-datepicker id="cat-birth" v-model="cat.birthdate" placeholder="Enter the birthdate"></b-form-datepicker>
     <br>
     <label for="cat-description">Description:</label>
-    <b-form-input id="cat-description" v-model="cat.description" placeholder="Enter the cat description"></b-form-input>
+    <b-form-textarea id="cat-description" v-model="cat.description" placeholder="Enter the description" ></b-form-textarea>
     <br>
   </b-modal>
 </template>
