@@ -2,7 +2,9 @@
   <div>
     <div id="app">
       <div>
-        <img id="title" src="./assets/catmon.png">
+        <a target="_blank" href="https://www.youtube.com/watch?v=rg6CiPI6h2g">
+          <img id="title" src="./assets/catmon.png">
+        </a>
       </div>
       <div class="cats-map">
         <img v-tooltip="'Click to register your cat!'" @click="openCreateModal" src="./assets/pokemon_map.jpg">
@@ -135,10 +137,12 @@ export default {
     }
   }
 }
-  footer {
-    text-align: center;
-    margin-top: -22px;
-    font-weight: bold;
-    font-size: small;
-  }
+
+footer {
+  text-align: center;
+  margin-top: -22px;
+  font-weight: bold;
+  font-size: small;
+  color: darkcyan;
+}
 </style>
