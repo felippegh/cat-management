@@ -59,7 +59,6 @@ export default {
 
   methods: {
     loadCats() {
-      console.log("TEST");
       Cats.index().then(response => {
         this.cats = response.data;
       })

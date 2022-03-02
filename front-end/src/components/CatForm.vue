@@ -84,6 +84,7 @@ export default {
     catSaved() {
         this.$swal('Saved!', 'Your cat has been saved.', 'success');
         this.$bvModal.hide("my-modal");
+        Object.assign(this.$data, this.$options.data());
         this.$emit('saved');
     }
   },
