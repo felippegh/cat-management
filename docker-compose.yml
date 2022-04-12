@@ -33,6 +33,8 @@ services:
         image: php
         build: .docker/php
         container_name: 'cat-management-php-build'
+        depends_on:
+            - node
         volumes:
             - ./back-end/.:/var/www/html/cat-management
         links:
