@@ -80,7 +80,6 @@ export default {
                 'Your cat has been deleted.',
                 'success'
             )
-            console.log(response);
             this.loadCats();
           })
         }
